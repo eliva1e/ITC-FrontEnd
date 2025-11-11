@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decremented, incremented } from './stores/counter';
+import ValueInput from './components/ValueInput';
 
 function App() {
   const dispatch = useDispatch();
@@ -8,9 +9,15 @@ function App() {
 
   return (
     <div>
-      <h1>{value}</h1>
-      <button onClick={() => dispatch(incremented())}>Increment by 1</button>
-      <button onClick={() => dispatch(decremented())}>Decrement by 1</button>
+      <h1 className="counter">{value}</h1>
+      <button className="big" onClick={() => dispatch(incremented())}>
+        Increment
+      </button>
+      <button className="big" onClick={() => dispatch(decremented())}>
+        Decrement
+      </button>
+
+      <ValueInput />
     </div>
   );
 }
