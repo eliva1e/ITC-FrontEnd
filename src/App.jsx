@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { decremented, incremented } from './stores/counter';
-import ValueInput from './components/ValueInput';
-import Button from './components/Button';
-import CounterValue from './components/CounterValue';
+import { ValueInput } from './components/ValueInput';
+import { Button } from './components/Button';
+import { CounterValue } from './components/CounterValue';
 
 function App() {
   const dispatch = useDispatch();

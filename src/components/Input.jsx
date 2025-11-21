@@ -1,7 +1,7 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-function Input({ onChange, value }) {
+export function Input({ onChange, value }) {
   return (
     <input
       type="number"
@@ -10,5 +10,3 @@ function Input({ onChange, value }) {
     />
   );
 }
-
-export default Input;

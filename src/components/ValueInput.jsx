@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { set } from '../stores/counter';
-import Input from './Input';
+import { Input } from './Input';
 
-function ValueInput() {
+export function ValueInput() {
   const dispatch = useDispatch();
   const [value, setValue] = useState(0);
 
@@ -20,5 +20,3 @@ function ValueInput() {
     </form>
   );
 }
-
-export default ValueInput;
