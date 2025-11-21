@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { set } from '../stores/counter';
+import Input from './Input';
 
 function ValueInput() {
   const dispatch = useDispatch();
@@ -14,11 +15,7 @@ function ValueInput() {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <Input value={value} onChange={(e) => setValue(e.target.value)} />
       <button type="submit">Set value</button>
     </form>
   );
