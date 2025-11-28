@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { set, useCounterDispatch } from '../stores/counter';
 
-export function ValueInput() {
+export const ValueInput: React.FC = () => {
   const dispatch = useCounterDispatch();
   const [value, setValue] = useState(0);
 
@@ -12,12 +12,8 @@ export function ValueInput() {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-      />
+      <input type="number" value={value} onChange={(e) => setValue(Number(e.target.value))} />
       <button type="submit">Set value</button>
     </form>
   );
-}
+};

@@ -1,7 +1,3 @@
-import type { ButtonHTMLAttributes } from 'react';
-
-export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <button className="big-btn" {...props} />
-  );
-}
+export const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
+  return <button className="big-btn" {...props} />;
+};

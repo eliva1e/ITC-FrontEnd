@@ -3,7 +3,7 @@ import { ValueInput } from './components/ValueInput';
 import { Button } from './components/Button';
 import { CounterValue } from './components/CounterValue';
 
-function App() {
+export const App: React.FC = () => {
   const dispatch = useCounterDispatch();
 
   return (
@@ -14,6 +14,4 @@ function App() {
       <ValueInput />
     </div>
   );
-}
-
-export default App;
+};
