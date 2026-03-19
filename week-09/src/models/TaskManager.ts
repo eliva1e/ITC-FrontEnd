@@ -49,7 +49,9 @@ export class TaskManager implements TaskManagerActions {
   async load(filename: string) {
     const data = await readFile(filename, 'utf8');
     const sTasks: STask[] = JSON.parse(data);
-    const tasks = sTasks.map((sTask) => Task.fromSerializable(sTask));
-    this.tasks = tasks;
+    this.tasks = sTasks.map((sTask) => Task.fromSerializable(sTask));
+
+    const maxId = this.tasks.reduce((max, t) => Math.max(max, t.id), 0);
+    this.nextId = maxId + 1;
   }
 }
