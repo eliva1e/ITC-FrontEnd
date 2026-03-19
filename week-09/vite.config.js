@@ -28,11 +28,6 @@ export default defineConfig({
         esModule: true,
         // Для CommonJS формата
         exports: 'named',
-        // Указываем, что сборка для Node.js
-        generatedCode: {
-          constBindings: true,
-          objectShorthand: true,
-        },
       },
     },
     // Указываем цель для Node.js
