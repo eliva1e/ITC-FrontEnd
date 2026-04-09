@@ -8,8 +8,7 @@ export const list: Command = {
   run(manager, ...argv) {
     const showAll = argv[1] === '-a';
 
-    const tasks = manager.availableTasks();
-    for (const t of tasks) {
+    for (const t of manager.availableTasks()) {
       if (showAll) {
         console.log(`${t.id} ${t.complete ? '[DONE]' : '[TODO]'} ${t.title}`);
       } else if (!t.complete) {
