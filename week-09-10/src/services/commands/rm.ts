@@ -19,7 +19,7 @@ export const rm: Command = {
       return false;
     }
 
-    manager.closeTask(id);
+    manager.removeTask(id);
     return true;
   },
   description: 'rm [task-id]: remove task',
