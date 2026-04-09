@@ -6,7 +6,9 @@ interface TaskManagerActions {
   save: (filename: string) => Promise<void>;
   addTask: (title: string) => number;
   findTask: (id: number) => Task | null;
+  removeTask: (id: number) => void;
   closeTask: (id: number) => void;
+  allTasks: () => Task[];
 
   // Задания, для которых isComplete() => false
   availableTasks: () => Task[];
@@ -27,6 +29,10 @@ export class TaskManager implements TaskManagerActions {
     return task || null;
   }
 
+  removeTask(id: number) {
+    this.tasks = this.tasks.filter((t) => t.id !== id);
+  }
+
   closeTask(id: number) {
     const task = this.findTask(id);
 
@@ -37,8 +43,12 @@ export class TaskManager implements TaskManagerActions {
     }
   }
 
-  availableTasks(): Task[] {
+  allTasks(): Task[] {
     return this.tasks;
+  }
+
+  availableTasks(): Task[] {
+    return this.tasks.filter((t) => !t.complete);
   }
 
   async save(filename: string) {
