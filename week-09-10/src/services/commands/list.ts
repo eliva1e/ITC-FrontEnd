@@ -8,12 +8,20 @@ export const list: Command = {
   run(manager, ...argv) {
     const showAll = argv[1] === '-a';
 
-    for (const t of manager.availableTasks()) {
-      if (showAll) {
-        console.log(`${t.id} ${t.complete ? '[DONE]' : '[TODO]'} ${t.title}`);
-      } else if (!t.complete) {
-        console.log(`${t.id} [TODO] ${t.title}`);
-      }
+    if (showAll) {
+      console.log(
+        manager
+          .allTasks()
+          .map((t) => `${t.id} ${t.complete ? '[DONE]' : '[TODO]'} ${t.title}`)
+          .join('\n'),
+      );
+    } else {
+      console.log(
+        manager
+          .availableTasks()
+          .map((t) => `${t.id} [TODO] ${t.title}`)
+          .join('\n'),
+      );
     }
 
     return false;
